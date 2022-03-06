@@ -1,0 +1,21 @@
+.option {
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+}
+
+.optionBody {
+  margin-top: 2rem;
+  margin-left: 5rem;
+  /* justify-content: center;
+  align-items: center; */
+  width: 10rem;
+  height: 5rem;
+  /* background-color: violet; */
+}
+
+.optionTxt {
+  color: /* gray; */ #fff;
+  margin-top: 0.7rem;
+  font-weight: 500;
+}
