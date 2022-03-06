@@ -1,3 +1,6 @@
+.main-body {
+  /* background-color: #ffa680; */
+}
 .imageScroll {
   width: 100%;
   /* height: 10rem; */
@@ -17,4 +20,41 @@
   right: 0;
   height: fit-content;
   margin: auto;
+}
+
+.cinema {
+  margin-top: 2rem;
+  display: flex;
+  position: relative;
+}
+
+.cinemaTxt {
+  color: white;
+  position: absolute;
+  font-weight: 800;
+  font-size: 2.7rem;
+  overflow-wrap: normal;
+  top: 5rem;
+  border-bottom: 1px solid #fff;
+}
+
+.cinemaBlock {
+  /* background-color: burlywood; */
+  width: 40vw;
+  height: 100%;
+  position: absolute;
+  justify-content: flex-end;
+  left: 60%;
+  right: 10%;
+  height: 100%;
+  /* text-align: center; */
+}
+
+.hackthonBlock {
+  width: 40vw;
+  height: 100%;
+  position: absolute;
+  justify-content: flex-end;
+  left: 10%;
+  height: 100%;
 }

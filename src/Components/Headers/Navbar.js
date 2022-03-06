@@ -44,7 +44,7 @@ export default class Navbar extends Component {
                 </a>
               </li>
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="#">
                   Covid-19
                 </a>
@@ -54,7 +54,7 @@ export default class Navbar extends Component {
                 <a className="nav-link" href="#">
                   Places to explore
                 </a>
-              </li>
+              </li> */}
             </ul>
             <form className="d-flex">
               <div className="locationGrp">
