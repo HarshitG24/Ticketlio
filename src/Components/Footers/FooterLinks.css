@@ -1,0 +1,19 @@
+.footerLinks {
+  color: #fff;
+  margin-top: 3rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  /* display: flex;
+  justify-content: space-evenly; */
+}
+
+.linkOptions {
+  width: 10rem;
+  height: 10rem;
+  margin-bottom: 5rem;
+}
+
+p {
+  font-size: 0.8rem;
+  color: azure;
+}
