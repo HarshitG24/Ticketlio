@@ -28,7 +28,7 @@ export default class Footer extends Component {
         },
         {
           title: "About Us",
-          options: ["Our Projects", "Careers", "Branding"],
+          options: ["Our Projects", "Careers"],
         },
         {
           title: "Legal",
