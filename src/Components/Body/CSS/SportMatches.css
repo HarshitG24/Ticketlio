@@ -1,0 +1,24 @@
+.sports-match{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
+    /* margin-left: 3.5rem; */
+}
+
+.sports-poster{
+    width: 15rem;
+    height: 20rem;
+    /* padding: 4rem; */
+    /* overflow-x: scroll; */
+}
+
+.book-btn{
+    margin-top: 2rem;
+    border: 0.1rem solid #000;
+    background-color: cornflowerblue;
+    color: white
+}
