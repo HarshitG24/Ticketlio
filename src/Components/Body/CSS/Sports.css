@@ -1,0 +1,36 @@
+.sports{
+    /* margin-left: 4rem; */
+}
+
+.sport-img{
+    /* background-color: green; */
+    width: 100%;
+}
+
+.sports-banner{
+    object-fit: fill;
+    width: 100%;
+    /* padding-bottom: calc(var(--padding-vertical) + 4rem);
+   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%); */
+     -webkit-clip-path: polygon(0 0, 0 100%, 100% 80%, 100% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 80%, 100% 0);
+  max-height: 30rem;
+  height: auto;
+}
+
+.sport-name{
+    font-weight: 800;
+    font-size: 2rem;
+    color: #000;
+}
+
+.group-sports{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+}
+
+.left-space{
+    margin-left: 4rem;
+}
