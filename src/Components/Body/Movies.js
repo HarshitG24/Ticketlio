@@ -196,16 +196,32 @@ class Movies extends Component {
   }
 
   updateRemainingTickets(val, index){
-    let movieData = this.state.actualMovieData;
-    let tempData = movieData[index]
-    tempData.remainingTickets = `${
-      parseInt(tempData.remainingTickets) - parseInt(val || '0')
-    }`;
-    movieData[index] = tempData;
+    console.log("val is", val);
+    if(val !== "" && val !== '0' && val !== 0 ){
+            let movieData = [...this.state.actualMovieData];
+            let tempData = movieData[index];
+            tempData.remainingTickets = `${
+              parseInt(tempData.remainingTickets) - parseInt(val || "0")
+            }`;
+            movieData[index] = tempData;
 
-    this.setState({
-      movieData: movieData
-    })
+            this.setState({
+              movieData: movieData,
+            });
+    } else {
+      let movieData = [...this.state.actualMovieData];
+      let tempData = movieData[index];
+      // tempData.remainingTickets = `${
+      //   parseInt(tempData.remainingTickets)
+      // }`;
+      movieData[index] = tempData;
+      console.log("tempData", tempData);
+
+
+      this.setState({
+        movieData: movieData,
+      });
+    }
   }
 
   render() {
@@ -265,7 +281,7 @@ class Movies extends Component {
                     <div className="book-tickets">
                       <div>
                         <MovieTicket rowNumber={index} updateRemainingTickets={this.updateRemainingTickets}/>
-                        <p>Tickets available: {elem.remainingTickets}</p>
+                        {/* <p>Tickets available: {elem.remainingTickets}</p> */}
                       </div>
                       <button className="book-btn">Book Tickets</button>
                     </div>
