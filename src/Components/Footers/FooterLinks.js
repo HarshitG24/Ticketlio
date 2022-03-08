@@ -9,7 +9,7 @@ export default class FooterLinks extends Component {
         <div className="linkOptions">
           <h4>{data.title}</h4>
           {data.options.map((elem) => {
-            return <p>{elem}</p>;
+            return <p className="footer-options">{elem}</p>;
           })}
         </div>
       </div>
