@@ -8,6 +8,7 @@ export default class Navbar extends Component {
     super(props);
     this.state = {
       displayScreen: 1,
+      myCity: "San Francisco",
     };
   }
 
@@ -24,13 +25,24 @@ export default class Navbar extends Component {
         <Movies />;
     }
   }
+
+  onChangeCity(evt){
+    this.setState({
+      myCity: evt.target.value
+    })
+  }
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg  navbar-color">
           <div className="container-fluid">
             <a className="navbar-brand" href="/">
-              Ticketlio
+              {/* Ticketlio */}
+              <img
+                src="https://s3.amazonaws.com/logos.brandpa.com/uploads/20f3ba4de705602366939ad0098a1de7/ticketlio2.png"
+                alt="new"
+                className="logo"
+              />
             </a>
             <button
               className="navbar-toggler"
@@ -50,7 +62,7 @@ export default class Navbar extends Component {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a
-                    className="nav-link"
+                    className="navbar-option"
                     href="movies"
                     onClick={() => this.changePage(2)}
                   >
@@ -60,7 +72,7 @@ export default class Navbar extends Component {
 
                 <li className="nav-item">
                   <a
-                    className="nav-link"
+                    className="navbar-option"
                     href="Sports"
                     onClick={() => this.changePage(3)}
                   >
@@ -70,7 +82,7 @@ export default class Navbar extends Component {
 
                 <li className="nav-item">
                   <a
-                    className="nav-link"
+                    className="navbar-option"
                     href="Hackathons"
                     onClick={() => this.changePage(4)}
                   >
@@ -91,7 +103,7 @@ export default class Navbar extends Component {
                 </li> */}
               </ul>
 
-              <form className="d-flex">
+              {/* <form className="d-flex">
                 <div className="locationGrp">
                   <img
                     src={locationIcon}
@@ -106,7 +118,25 @@ export default class Navbar extends Component {
                     </li>
                   </ul>
                 </div>
-              </form>
+              </form> */}
+              <div>
+                <select
+                  name="cityList"
+                  id="cityList"
+                  value={this.state.myCity}
+                  onChange={(e) => this.onChangeCity(e)}
+                >
+                  <option value="">Please select your location</option> 
+                  <option value="San Francisco">San Francisco</option>
+                  <option value="New York">New York</option>
+                  <option value="Chicago">Chicago</option>
+                  <option value="Boston">Boston</option>
+                  <option value="Los Angeles">Los Angeles</option>
+                  <option value="Seattle">Seattle</option>
+                  <option value="Atlanta">Atlanta</option>
+                  <option value="Indianapolis">Indianapolis</option>
+                </select>
+              </div>
             </div>
           </div>
         </nav>
