@@ -13,7 +13,12 @@
   margin-bottom: 5rem;
 }
 
-p {
+/* p {
   font-size: 0.8rem;
+  color: azure;
+} */
+
+.footer-options{
+    font-size: 0.8rem;
   color: azure;
 }
