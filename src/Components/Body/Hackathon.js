@@ -12,7 +12,7 @@ export default class Hackathon extends Component {
           className="hackathon-poster"
         />
         <div>
-          <h1>Hackathon</h1>
+          <h1 className="hack-main-title">Hackathons</h1>
           <HackathonBody />
         </div>
       </div>
