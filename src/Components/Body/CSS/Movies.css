@@ -19,7 +19,7 @@
   padding-right: 2.5rem;
   width: 25rem;
   height: 25rem;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .movie-title{
@@ -47,4 +47,12 @@ p{
   background-color: rgb(156, 156, 250);
   margin-right: 3rem;
   border: 0.1rem solid #000;
+}
+
+select{
+  margin-left: 2rem;
+}
+
+.movie-filters{
+  margin-bottom: 2rem;
 }
