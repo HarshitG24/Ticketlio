@@ -7,7 +7,7 @@ export default class Hackathon extends Component {
     return (
       <div className="hackathon">
         <img
-          src="https://t3.ftcdn.net/jpg/03/01/13/20/360_F_301132090_LKoSp3l3cXlCo78zaAe2M9LI2z5yznvB.jpg"
+          src="https://www.commbox.io/wp-content/uploads/2021/01/663-1.jpg"
           alt="new"
           className="hackathon-poster"
         />
