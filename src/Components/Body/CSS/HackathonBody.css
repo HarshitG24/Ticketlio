@@ -1,0 +1,27 @@
+.hack-body{
+    display: flex;
+    flex-direction: row;
+}
+
+.hackathon-image-block{
+    width: 50%;
+    height: 100vh;
+    background-color: green;
+    text-align: center;
+}
+
+.hackathon-description{
+    width: 50%;
+    height: 100vh;
+    background-color: hotpink;
+    margin-right: 2.5rem;
+}
+
+.hack-poster{
+    object-fit: cover;
+    width: 80%;
+    height: 80%;
+      display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
