@@ -12,9 +12,17 @@ export default class ShowTimings extends Component {
 
     showTimingSelected(event, index){
         console.log(event.target.style, index);
-        event.target.style.borderColor = "orange";
-        event.target.style.color = "orange";
-        event.target.classList.add("show-timings");
+
+        if (event.target.style.borderColor !== "orange"){
+                      event.target.style.borderColor = "orange";
+                      event.target.style.color = "orange";
+                      event.target.classList.add("show-timings");
+        } else{
+                      event.target.style.borderColor = "black";
+                      event.target.style.color = "black";
+                      event.target.classList.add("show-timings");
+        }
+
         
     }
     render() {

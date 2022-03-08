@@ -10,3 +10,19 @@
   flex-direction: row-reverse;
   position: relative;
 }
+
+.logo{
+  width: 10rem;
+  height: 3rem;
+  object-fit: cover;
+}
+
+.navbar-color{
+  background-color:rgb(71, 0, 142);
+}
+
+.navbar-option{
+  color: #ffffff;
+  margin-right: 2rem;
+  text-decoration: none;
+}

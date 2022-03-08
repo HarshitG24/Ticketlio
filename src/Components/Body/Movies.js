@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../Body/CSS/Movies.css";
 import ShowTimings from "./ShowTimings";
 import MovieTicket from "./MovieTicket";
+import NoMovie from "./NoMovie";
 
 
 class Movies extends Component {
@@ -18,7 +19,8 @@ class Movies extends Component {
           posterUrl:
             "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/interstellar2_480x.progressive.jpg?v=1585846823",
           title: "Interstellar",
-          description: "asd",
+          description:
+            "In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth's population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind's new home.",
           showTimings: [
             "10:30 AM",
             "10:45 AM",
@@ -38,7 +40,8 @@ class Movies extends Component {
           posterUrl:
             "https://m.media-amazon.com/images/M/MV5BMTQ1MjQwMTE5OF5BMl5BanBnXkFtZTgwNjk3MTcyMDE@._V1_.jpg",
           title: "Frozen",
-          description: "okl",
+          description:
+            "When their kingdom becomes trapped in perpetual winter, fearless Anna (Kristen Bell) joins forces with mountaineer Kristoff (Jonathan Groff) and his reindeer sidekick to find Anna's sister, Snow Queen Elsa (Idina Menzel), and break her icy spell. Although their epic journey leads them to encounters with mystical trolls, a comedic snowman (Josh Gad), harsh conditions, and magic at every turn, Anna and Kristoff bravely push onward in a race to save their kingdom from winter's cold grip.",
           showTimings: [
             "11:30 AM",
             "11:45 AM",
@@ -58,7 +61,8 @@ class Movies extends Component {
           posterUrl:
             "https://m.media-amazon.com/images/M/MV5BMTQ5NjQ0NDI3NF5BMl5BanBnXkFtZTcwNDI0MjEzMw@@._V1_.jpg",
           title: "Pursuit of the happines",
-          description: "okl",
+          description:
+            "Life is a struggle for single father Chris Gardner (Will Smith). Evicted from their apartment, he and his young son (Jaden Christopher Syre Smith) find themselves alone with no place to go. Even though Chris eventually lands a job as an intern at a prestigious brokerage firm, the position pays no money. The pair must live in shelters and endure many hardships, but Chris refuses to give in to despair as he struggles to create a better life for himself and his son.",
           showTimings: [
             "11:30 AM",
             "11:45 AM",
@@ -78,7 +82,8 @@ class Movies extends Component {
           posterUrl:
             "https://lumiere-a.akamaihd.net/v1/images/p_walle_19753_69f7ff00.jpeg",
           title: "Walle",
-          description: "okl",
+          description:
+            "WALL-E, short for Waste Allocation Load Lifter Earth-class, is the last robot left on Earth. He spends his days tidying up the planet, one piece of garbage at a time. But during 700 years, WALL-E has developed a personality, and he's more than a little lonely. Then he spots EVE (Elissa Knight), a sleek and shapely probe sent back to Earth on a scanning mission. Smitten WALL-E embarks on his greatest adventure yet when he follows EVE across the galaxy.",
           showTimings: [
             "11:30 AM",
             "11:45 AM",
@@ -227,9 +232,10 @@ class Movies extends Component {
   render() {
     return (
       <div>
-        <h1>Movies</h1>
+        <h1 className="movie-title">Movies</h1>
 
         <div className="movie-filters">
+          <p className="select-cinema">Select Cinema</p>
           <select
             name="movieList"
             id="movieList"
@@ -239,7 +245,6 @@ class Movies extends Component {
             <option value="PVR">PVR</option>
             <option value="INOX">INOX</option>
             <option value="IBIS">IBIS</option>
-            <option value="ABC">ABC</option>
           </select>
 
           {/* {this.state.theatreName !== "" ? (
@@ -258,7 +263,7 @@ class Movies extends Component {
         </div>
 
         <div>
-          {(this.state.theatreName) &&
+          {this.state.theatreName && this.state.movieData ?
             this.state.movieData.map((elem, index) => {
               return (
                 <div className="movie-box">
@@ -270,25 +275,42 @@ class Movies extends Component {
                     />
                   </div>
                   <div className="movie-details">
-                    <p className="movie-title">{elem.title}</p>
-                    <p>{elem.description}</p>
-                    <p>Show Timings:</p>
+                    <p className="movies-name">{elem.title}</p>
+                    <p className="movie-desc">{elem.description}</p>
+                    <p className="timings">Show Timings:</p>
                     <ShowTimings timings={elem.showTimings} />
 
-                    <p>Theatre: {elem.theatre}</p>
-                    <p>Date: Today</p>
-                    <p>Number of tickets:</p>
+                    <div className="theatre-name">
+                      <p className="theatre">Theatre:</p>
+                      <p>{elem.theatre}</p>
+                    </div>
+
+                    <div className="theatre-name">
+                      <p className="theatre">Date:</p>
+                      <p>March 9, 2022</p>
+                    </div>
+                    <p className="theatre">Number of tickets:</p>
                     <div className="book-tickets">
-                      <div>
-                        <MovieTicket rowNumber={index} updateRemainingTickets={this.updateRemainingTickets}/>
+                      <div
+                        style={{
+                          width: "100%",
+                          display: "flex",
+                          flexDirection: "row",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <MovieTicket
+                          rowNumber={index}
+                          updateRemainingTickets={this.updateRemainingTickets}
+                        />
                         {/* <p>Tickets available: {elem.remainingTickets}</p> */}
+                        <button className="book-movie-btn">Book Tickets</button>
                       </div>
-                      <button className="book-btn">Book Tickets</button>
                     </div>
                   </div>
                 </div>
               );
-            })}
+            }) : <NoMovie />}
         </div>
       </div>
     );
