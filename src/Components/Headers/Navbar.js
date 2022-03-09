@@ -3,6 +3,15 @@ import locationIcon from "../../Images/locationIcon.png";
 import "./Navbar.css";
 import Movies from "../Body/Movies";
 
+
+const cities = [
+  'Please select a city',
+  'San Francisco',
+  'Boston',
+  'Seattle',
+  'New York',
+  'Atlanta'
+]
 export default class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +25,7 @@ export default class Navbar extends Component {
     this.setState({
       displayScreen: val,
     });
+    this.props.changeMyCity(cities[val]);
   }
 
   displayPage(val) {
@@ -30,7 +40,11 @@ export default class Navbar extends Component {
     this.setState({
       myCity: evt.target.value
     })
+
+    console.log("selected city", evt.target.value);
+    this.props.changeMyCity(evt.target.value);
   }
+
   render() {
     return (
       <div>
@@ -89,36 +103,7 @@ export default class Navbar extends Component {
                     Hackathons
                   </a>
                 </li>
-
-                {/* <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Covid-19
-                  </a>
-                </li>
-  
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Places to explore
-                  </a>
-                </li> */}
               </ul>
-
-              {/* <form className="d-flex">
-                <div className="locationGrp">
-                  <img
-                    src={locationIcon}
-                    className="location"
-                    alt="Unable to render image"
-                  ></img>
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                      <a className="nav-link" href="#">
-                        San Francisco
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </form> */}
               <div>
                 <select
                   name="cityList"
@@ -126,7 +111,7 @@ export default class Navbar extends Component {
                   value={this.state.myCity}
                   onChange={(e) => this.onChangeCity(e)}
                 >
-                  <option value="">Please select your location</option> 
+                  {/* <option value="">Please select your location</option> 
                   <option value="San Francisco">San Francisco</option>
                   <option value="New York">New York</option>
                   <option value="Chicago">Chicago</option>
@@ -134,7 +119,14 @@ export default class Navbar extends Component {
                   <option value="Los Angeles">Los Angeles</option>
                   <option value="Seattle">Seattle</option>
                   <option value="Atlanta">Atlanta</option>
-                  <option value="Indianapolis">Indianapolis</option>
+                  <option value="Indianapolis">Indianapolis</option> */}
+                  {
+                    cities.map(e => {
+                      return (
+                      <option value={e}>{e}</option>
+                      )
+                    })
+                  }
                 </select>
               </div>
             </div>
