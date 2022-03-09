@@ -40,29 +40,29 @@ const sportsData = [
     sportCategory: "Rugby",
     sportMatchesData: [
       {
-        matchName: "Barcelona vs Galatasaray",
-        matchTime: "18:00 PM onwards",
-        seatsLeft: "786",
-        matchDay: "April 12, 2022",
+        matchName: "Team A vs Team B",
+        matchTime: "13:00 PM onwards",
+        seatsLeft: "234",
+        matchDay: "May 24, 2022",
         location: "San Francisco",
         imageUrl:
           "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/rugby-game-match-tournament-poster-template-b997c16547fd1c00524a36a724b0917f_screen.jpg?ts=1636974292",
       },
       {
-        matchName: "Barcelona vs Galatasaray",
-        matchTime: "18:00 PM onwards",
-        seatsLeft: "786",
-        matchDay: "April 12, 2022",
+        matchName: "Rebels vs Chasels",
+        matchTime: "10:00 AM onwards",
+        seatsLeft: "10",
+        matchDay: "March 10, 2022",
         location: "San Francisco",
         imageUrl:
           "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/rugby-game-poster-template-9d12fe171aae4fc9451912439ce7c6d2_screen.jpg?ts=1636979489",
       },
       {
-        matchName: "Barcelona vs Galatasaray",
-        matchTime: "18:00 PM onwards",
-        seatsLeft: "786",
-        matchDay: "April 12, 2022",
-        location: "San Francisco",
+        matchName: "Wales vs France",
+        matchTime: "16:00 PM onwards",
+        seatsLeft: "99",
+        matchDay: "June 12, 2022",
+        location: "Los Angeles",
         imageUrl:
           "https://st.depositphotos.com/1000195/2770/v/950/depositphotos_27707405-stock-illustration-american-football-and-rugby-game.jpg",
       },
@@ -72,29 +72,29 @@ const sportsData = [
     sportCategory: "Ping Pong",
     sportMatchesData: [
       {
-        matchName: "Barcelona vs Galatasaray",
+        matchName: "Brozek vs Rejent",
         matchTime: "18:00 PM onwards",
-        seatsLeft: "786",
-        matchDay: "April 12, 2022",
-        location: "San Francisco",
+        seatsLeft: "123",
+        matchDay: "July 24, 2022",
+        location: "Boston",
         imageUrl:
           "https://atholreccentre.files.wordpress.com/2013/03/ping-pong-poster.png",
       },
       {
-        matchName: "Barcelona vs Galatasaray",
-        matchTime: "18:00 PM onwards",
-        seatsLeft: "786",
-        matchDay: "April 12, 2022",
-        location: "San Francisco",
+        matchName: "Hejda vs Puk",
+        matchTime: "09:00 AM onwards",
+        seatsLeft: "400",
+        matchDay: "June 12, 2022",
+        location: "Seattle",
         imageUrl:
           "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/table-tennis-tournament-flyer-design-template-2d6f868076d69749fc9bde486f30073c_screen.jpg?ts=1636992596",
       },
       {
-        matchName: "Barcelona vs Galatasaray",
-        matchTime: "18:00 PM onwards",
-        seatsLeft: "786",
+        matchName: "Marat vs Fiklik",
+        matchTime: "20:00 PM onwards",
+        seatsLeft: "298",
         matchDay: "April 12, 2022",
-        location: "San Francisco",
+        location: "Atlanta",
         imageUrl:
           "https://fitpong.ca/sites/default/files/April_23_TABLETENNIS.jpg",
       },
@@ -103,6 +103,11 @@ const sportsData = [
 ];
 export default class Sports extends Component {
   render() {
+    console.log("the city on sports", this.props.city);
+    let arr = sportsData.filter(
+      (elem) => elem.sportMatchesData.location === this.props.city
+    );
+    console.log('sport arr', arr);
     return (
       <div className="sports">
         <div className="sport-img">
@@ -114,13 +119,14 @@ export default class Sports extends Component {
         </div>
         <h1 className="left-space sport-main-title">Sports</h1>
         {sportsData.map((e) => {
-          return (
-            <SportCatgeory
-              category={e.sportCategory}
-              matches={e.sportMatchesData}
-            />
-          );
-        })}
+            return (
+              <SportCatgeory
+                category={e.sportCategory}
+                matches={e.sportMatchesData}
+                city={this.props.city}
+              />
+            );
+          })}
       </div>
     );
   }

@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import "./CSS/SportMatches.css"
 
 // "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg"
+
 export default class SportMatches extends Component {
+
+  constructor(props){
+    super(props);
+    this.bookTickets = this.bookTickets.bind(this);
+  }
+
+    bookTickets(val){
+      alert("Tickets booked for " +  val)
+    }
     render() {
       const {
         imageUrl,
@@ -39,7 +49,12 @@ export default class SportMatches extends Component {
               </div>
             </div>
 
-            <button className="book-btn">Book Tickets</button>
+            <button
+              className="book-btn"
+              onClick={() => this.bookTickets(this.props.mData.matchName)}
+            >
+              Book Tickets
+            </button>
           </div>
         );
     }
