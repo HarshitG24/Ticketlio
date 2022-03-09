@@ -20,7 +20,7 @@ const hackathonData = [
       "We are excited to announce the 10th annual NYUAD Hackathon for Social Good which will focus on one of the most promising technologies of our time, Quantum Computing (QC). We will form cross-disciplinary global teams building solutions to challenging problems we are facing today using Quantum Computing technologies.",
     duration: "6 Days",
     date: "April 21, 2022 to March 26, 2022",
-    location: "San Francisco",
+    location: "Boston",
     posterUrl: "https://pbs.twimg.com/media/EVqzx6bX0AAKGmj.jpg",
   },
   {
@@ -29,7 +29,7 @@ const hackathonData = [
       "A hackathon is a design sprint-like event, in which often computer programmers and others involved in software development, including graphic designers, interface designers, product managers, project managers, domain experts, and others collaborate intensively on software projects.",
     duration: "1 Day",
     date: "May 5, 2022 to May 6, 2022",
-    location: "San Francisco",
+    location: "Atlanta",
     posterUrl:
       "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/code-hackathon-event-poster-design-template-d7c8ddfd12e11fd2b9c6b70241626091_screen.jpg?ts=1567076214",
   },
@@ -46,11 +46,11 @@ export default class HackathonBody extends Component {
     this.onRegister = this.onRegister.bind(this);
   }
     render() {
+      let arr = hackathonData.filter(elem => elem.location === this.props.city);
         return (
           <div>
             {
-              hackathonData.map((e, index) => {
-                
+             arr.length > 0 ? arr.map((e, index) => {
                 const {title, description, duration, posterUrl, date, location} =  e;
                 // let ind = index;
                 return (
@@ -89,7 +89,7 @@ export default class HackathonBody extends Component {
                     </div>
                   </div>
                 );
-              })
+              }) : <h4 style={{textAlign: 'center', marginTop: "3rem"}}>No Hackathons Found</h4>
             }
 
           </div>

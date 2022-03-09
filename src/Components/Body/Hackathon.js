@@ -13,7 +13,7 @@ export default class Hackathon extends Component {
         />
         <div>
           <h1 className="hack-main-title">Hackathons</h1>
-          <HackathonBody />
+          <HackathonBody city={this.props.city}/>
         </div>
       </div>
     );
