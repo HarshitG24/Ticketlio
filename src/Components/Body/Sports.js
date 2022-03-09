@@ -8,16 +8,31 @@ const sportsData = [
     sportCategory: "Football",
     sportMatchesData: [
       {
+        matchName: "Man City vs Sporting",
+        matchTime: "12:00 PM onwards",
+        seatsLeft: "176",
+        matchDay: "March 9, 2022",
+        location: "San Francisco",
         imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
+          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/soccer-night-video-match-template-design-d3776b1ef4a2b7abb011d1d8e7f56d38_screen.jpg?ts=1599553534",
       },
       {
+        matchName: "Real Madrid vs PSG",
+        matchTime: "11:45 AM onwards",
+        seatsLeft: "300",
+        matchDay: "March 21, 2022",
+        location: "Boston",
         imageUrl:
-          "https://media.wired.com/photos/6149204955f7b3aea723343d/master/pass/Gear-Review-Apple_iPhone-13-Pro_Colors_09142021.jpg",
+          "https://img.pikbest.com/01/43/22/61tpIkbEsTVEI.jpg-1.jpg!bw700",
       },
       {
+        matchName: "Barcelona vs Galatasaray",
+        matchTime: "18:00 PM onwards",
+        seatsLeft: "786",
+        matchDay: "April 12, 2022",
+        location: "San Francisco",
         imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
+          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/soccer-game-poster-template-48162aedb0b6cfcd112d3bd44ad3453b_screen.jpg?ts=1636972116",
       },
     ],
   },
@@ -25,50 +40,63 @@ const sportsData = [
     sportCategory: "Rugby",
     sportMatchesData: [
       {
+        matchName: "Barcelona vs Galatasaray",
+        matchTime: "18:00 PM onwards",
+        seatsLeft: "786",
+        matchDay: "April 12, 2022",
+        location: "San Francisco",
         imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
+          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/rugby-game-match-tournament-poster-template-b997c16547fd1c00524a36a724b0917f_screen.jpg?ts=1636974292",
       },
       {
+        matchName: "Barcelona vs Galatasaray",
+        matchTime: "18:00 PM onwards",
+        seatsLeft: "786",
+        matchDay: "April 12, 2022",
+        location: "San Francisco",
         imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
+          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/rugby-game-poster-template-9d12fe171aae4fc9451912439ce7c6d2_screen.jpg?ts=1636979489",
       },
       {
+        matchName: "Barcelona vs Galatasaray",
+        matchTime: "18:00 PM onwards",
+        seatsLeft: "786",
+        matchDay: "April 12, 2022",
+        location: "San Francisco",
         imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
-      },
-    ],
-  },
-  {
-    sportCategory: "Cricket",
-    sportMatchesData: [
-      {
-        imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
-      },
-      {
-        imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
-      },
-      {
-        imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
+          "https://st.depositphotos.com/1000195/2770/v/950/depositphotos_27707405-stock-illustration-american-football-and-rugby-game.jpg",
       },
     ],
   },
   {
-    sportCategory: "Table Tennis",
+    sportCategory: "Ping Pong",
     sportMatchesData: [
       {
+        matchName: "Barcelona vs Galatasaray",
+        matchTime: "18:00 PM onwards",
+        seatsLeft: "786",
+        matchDay: "April 12, 2022",
+        location: "San Francisco",
         imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
+          "https://atholreccentre.files.wordpress.com/2013/03/ping-pong-poster.png",
       },
       {
+        matchName: "Barcelona vs Galatasaray",
+        matchTime: "18:00 PM onwards",
+        seatsLeft: "786",
+        matchDay: "April 12, 2022",
+        location: "San Francisco",
         imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
+          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/table-tennis-tournament-flyer-design-template-2d6f868076d69749fc9bde486f30073c_screen.jpg?ts=1636992596",
       },
       {
+        matchName: "Barcelona vs Galatasaray",
+        matchTime: "18:00 PM onwards",
+        seatsLeft: "786",
+        matchDay: "April 12, 2022",
+        location: "San Francisco",
         imageUrl:
-          "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg",
+          "https://fitpong.ca/sites/default/files/April_23_TABLETENNIS.jpg",
       },
     ],
   },
@@ -85,14 +113,6 @@ export default class Sports extends Component {
           />
         </div>
         <h1 className="left-space sport-main-title">Sports</h1>
-        {/* 
-        <p className="sport-name left-space">Soccer</p>
-        <div className="group-sports">
-          <SportMatches />
-          <SportMatches />
-          <SportMatches />
-          <SportMatches />
-        </div> */}
         {sportsData.map((e) => {
           return (
             <SportCatgeory
@@ -101,9 +121,6 @@ export default class Sports extends Component {
             />
           );
         })}
-
-        {/* <p className="sport-name left-space">Table Tennis</p>
-        <p className="sport-name left-space">Cricket</p> */}
       </div>
     );
   }
