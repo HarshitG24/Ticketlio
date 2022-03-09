@@ -11,16 +11,32 @@ import Hackathon from "./Components/Body/Hackathon";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      city: "San Francisco"
+    }
+    this.changeMyCity = this.changeMyCity.bind(this);
+  }
+
+  changeMyCity(city){
+    this.setState({
+      city
+    })
+
+    // alert('called');
+  }
   render() {
     return (
       <BrowserRouter>
-        <Navbar />
+        <Navbar changeMyCity={this.changeMyCity} />
         {/* <Body /> */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/sports" element={<Sports />} />
-          <Route path="/hackathons" element={<Hackathon />} />
+          <Route path="/movies" element={<Movies city={this.state.city} />} />
+          <Route path="/sports" element={<Sports city={this.state.city} />} />
+          <Route path="/hackathons" element={<Hackathon city={this.state.city} />} />
         </Routes>
 
         {/* {this.pageSelector(this.state.displayScreen)} */}

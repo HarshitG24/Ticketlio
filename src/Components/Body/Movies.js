@@ -5,12 +5,19 @@ import MovieTicket from "./MovieTicket";
 import NoMovie from "./NoMovie";
 
 
+const theatres = [
+  'PVR',
+  'INOX',
+  'IBIS'
+]
 class Movies extends Component {
 
   constructor(props){
     super(props);
+    console.log('The city i get here is', this.props.city);
     this.updateRemainingTickets = this.updateRemainingTickets.bind(this);
     this.state = {
+      city: this.props.city,
       ticketCount: 0,
       theatreName: "",
       movieName: "",
@@ -35,6 +42,7 @@ class Movies extends Component {
           ],
           theatre: "PVR",
           remainingTickets: "10",
+          city: "San Francisco",
         },
         {
           posterUrl:
@@ -56,6 +64,7 @@ class Movies extends Component {
           ],
           theatre: "PVR",
           remainingTickets: "12",
+          city: "Boston",
         },
         {
           posterUrl:
@@ -77,6 +86,7 @@ class Movies extends Component {
           ],
           theatre: "IBIS",
           remainingTickets: "12",
+          city: "Boston",
         },
         {
           posterUrl:
@@ -98,6 +108,7 @@ class Movies extends Component {
           ],
           theatre: "INOX",
           remainingTickets: "12",
+          city: "Boston",
         },
       ],
       movieData: [
@@ -186,8 +197,9 @@ class Movies extends Component {
   }
 
   changeTheatre(evt){
+    console.log('my current city', this.props.city)
     let data = this.state.actualMovieData;
-    data = data.filter(e => e.theatre.toLowerCase() === evt.target.value.toLowerCase());
+    data = data.filter(e => (e.theatre.toLowerCase() === evt.target.value.toLowerCase() && e.city === this.props.city));
         this.setState({
           theatreName: evt.target.value,
           movieData: data,
@@ -216,9 +228,6 @@ class Movies extends Component {
     } else {
       let movieData = [...this.state.actualMovieData];
       let tempData = movieData[index];
-      // tempData.remainingTickets = `${
-      //   parseInt(tempData.remainingTickets)
-      // }`;
       movieData[index] = tempData;
       console.log("tempData", tempData);
 
@@ -242,24 +251,15 @@ class Movies extends Component {
             onChange={(e) => this.changeTheatre(e)}
           >
             <option value="">Please select a theatre</option> 
-            <option value="PVR">PVR</option>
-            <option value="INOX">INOX</option>
-            <option value="IBIS">IBIS</option>
+            {
+              theatres.map(e => {
+                return(
+                  <option value={e}>{e}</option>
+                )
+              })
+            }
           </select>
 
-          {/* {this.state.theatreName !== "" ? (
-            <select
-              name="movieList"
-              id="movieList"
-              onChange={(e) => this.changeMovie(e)}
-            >
-              <option value="">Please select a movie</option> 
-              <option value="Interstellar">Interstellar</option>
-              <option value="Pursuit of Happiness">Pursuit of Happiness</option>
-              <option value="Walle">Walle</option>
-              <option value="Frozen">Frozen</option>
-            </select>
-          ) : null} */}
         </div>
 
         <div>
@@ -289,6 +289,12 @@ class Movies extends Component {
                       <p className="theatre">Date:</p>
                       <p>March 9, 2022</p>
                     </div>
+
+                    <div className="theatre-name">
+                      <p className="theatre">City:</p>
+                      <p>{this.props.city}</p>
+                    </div>
+
                     <p className="theatre">Number of tickets:</p>
                     <div className="book-tickets">
                       <div

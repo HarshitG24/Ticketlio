@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./CSS/MovieTicket.css";
 
 export default class MovieTicket extends Component {
     constructor(props){
@@ -6,6 +7,7 @@ export default class MovieTicket extends Component {
         this.state={
             ticketValue: '0'
         }
+        this.onChangeTicket = this.onChangeTicket.bind(this);
     }
 
     enterTickets(e){
@@ -14,15 +16,33 @@ export default class MovieTicket extends Component {
         })
         this.props.updateRemainingTickets(e.target.value, this.props.rowNumber);
     }
+
+    onChangeTicket(operation){
+      if(operation === "+"){
+        this.setState({
+          ticketValue: `${parseInt(this.state.ticketValue) + 1}`,
+        });
+      } else {
+          let val = parseInt(this.state.ticketValue) - 1;
+          if(val>=0){
+            this.setState({
+              ticketValue: val
+            })
+          }
+      }
+    }
     render() {
         return (
-          <div>
+          <div className="tickets">
+            <button className="add-ticket" onClick={() =>this.onChangeTicket("+")}>+</button>
             <input
               type="text"
               pattern="[0-9]*"
               value={this.state.ticketValue}
-              onChange={(e) => this.enterTickets(e) }
+              className="input-ticket"
+              onChange={(e) => this.enterTickets(e)}
             />
+            <button className="add-ticket" onClick={() =>this.onChangeTicket("-")}>-</button>
           </div>
         );
     }
