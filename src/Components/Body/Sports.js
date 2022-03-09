@@ -84,7 +84,7 @@ export default class Sports extends Component {
             className="sports-banner"
           />
         </div>
-        <h1 className="left-space">Sports</h1>
+        <h1 className="left-space sport-main-title">Sports</h1>
         {/* 
         <p className="sport-name left-space">Soccer</p>
         <div className="group-sports">

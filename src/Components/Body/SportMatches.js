@@ -12,6 +12,13 @@ export default class SportMatches extends Component {
               alt="new"
               className="sports-poster"
             />
+            <div>
+              <p>Liverpool vs Salzburg</p>
+              <div>
+                <p>Time:</p>
+                <p>7:00PM - 8:30PM</p>
+              </div>
+            </div>
             <button className="book-btn">Book Tickets</button>
           </div>
         );
