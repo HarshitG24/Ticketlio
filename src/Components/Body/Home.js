@@ -11,7 +11,7 @@ export default class Body extends Component {
       <div className="main-body">
         <div className="imageScroll">
           <img
-            src={home2}
+            src="https://wallpapercave.com/wp/wp9252814.jpg"
             className="imageScroll"
             alt="Unable to render image"
           ></img>
@@ -20,7 +20,7 @@ export default class Body extends Component {
 
         <div className="cinema">
           <img
-            src={cinema}
+            src="https://www.blsi.com/images/Lyric-Starry-Sky_LG.jpg"
             className="imageScroll"
             alt="Unable to render image"
           ></img>
@@ -33,7 +33,7 @@ export default class Body extends Component {
 
         <div className="cinema">
           <img
-            src={hackathon}
+            src="https://www.delphix.com/sites/default/files/2017-10/istock-492045720.jpg"
             className="imageScroll"
             alt="Unable to render image"
           ></img>
@@ -46,7 +46,7 @@ export default class Body extends Component {
 
         <div className="cinema">
           <img
-            src={sports}
+            src="https://wallpaper.dog/large/10839708.jpg"
             className="imageScroll"
             alt="Unable to render image"
           ></img>

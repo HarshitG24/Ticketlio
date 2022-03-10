@@ -41,7 +41,6 @@ export default class Navbar extends Component {
       myCity: evt.target.value
     })
 
-    console.log("selected city", evt.target.value);
     this.props.changeMyCity(evt.target.value);
   }
 
