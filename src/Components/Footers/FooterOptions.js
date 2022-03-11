@@ -21,7 +21,7 @@ export default class FooterOptions extends Component {
       <div className="optionBody">
         <img
           src={this.imageSelector(details.value)}
-          class="option"
+          className="option"
           alt="..."
         ></img>
         <p className="optionTxt">{details.imageText}</p>

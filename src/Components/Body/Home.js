@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import home2 from "../../Images/home2.jpeg";
-import cinema from "../../Images/cinema.jpeg";
-import hackathon from "../../Images/hackathon.jpeg";
-import sports from "../../Images/sports.jpeg";
 import "./Home.css";
+import {moviesData, sportsData, hackathonData} from "../../Data/Data.js"
 
 export default class Body extends Component {
+
+  componentDidMount(){
+    localStorage.setItem("movies-data",JSON.stringify(moviesData));
+    localStorage.setItem("sports-data", JSON.stringify(sportsData));
+    localStorage.setItem("hackathon-data", JSON.stringify(hackathonData));
+  }
   render() {
     return (
       <div className="main-body">

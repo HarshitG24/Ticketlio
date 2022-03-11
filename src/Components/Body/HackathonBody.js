@@ -44,9 +44,15 @@ export default class HackathonBody extends Component {
   constructor(props){
     super(props);
     this.onRegister = this.onRegister.bind(this);
+
+    let hackathonData = JSON.parse(localStorage.getItem("hackathon-data"));
+
+    this.state={
+      hackathonData
+    }
   }
     render() {
-      let arr = hackathonData.filter(elem => elem.location === this.props.city);
+      let arr = this.state.hackathonData.filter(elem => elem.location === this.props.city);
         return (
           <div>
             {
