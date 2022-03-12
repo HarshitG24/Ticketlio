@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Home.css";
 import {moviesData, sportsData, hackathonData} from "../../Data/Data.js"
 
-export default class Body extends Component {
+export default class Home extends Component {
 
   componentDidMount(){
     localStorage.setItem("movies-data",JSON.stringify(moviesData));

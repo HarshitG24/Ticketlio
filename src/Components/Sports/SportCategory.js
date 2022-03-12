@@ -5,7 +5,6 @@ import "./CSS/SportMatches.css";
 export default class SportCategory extends Component {
     render() {
       const {category, matches} = this.props;
-      console.log("matches", matches, this.props.city);
       let arr = matches.filter(elem => elem.location === this.props.city);
         return (
           <div className="sport-category-group">

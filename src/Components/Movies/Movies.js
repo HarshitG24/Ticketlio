@@ -10,6 +10,7 @@ const theatres = [
   'INOX',
   'IBIS'
 ]
+
 class Movies extends Component {
 
   constructor(props){
@@ -20,7 +21,7 @@ class Movies extends Component {
     let moviedata = localStorage.getItem("movies-data")
     this.state = {
       city: this.props.city,
-      ticketCount: 0,
+      // ticketCount: 0,
       theatreName: "",
       movieName: "",
       actualMovieData: JSON.parse(moviedata),
@@ -38,11 +39,11 @@ class Movies extends Component {
         });
   }
 
-  enterTickets(evt){
-    this.setState({
-      ticketCount: evt.target.value,
-    });
-  }
+  // enterTickets(evt){
+  //   this.setState({
+  //     ticketCount: evt.target.value,
+  //   });
+  // }
 
   updateRemainingTickets(val, index){
     console.log("val is", val);
