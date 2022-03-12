@@ -11,6 +11,7 @@ export default class Events extends Component {
             toDate: "",
             location: "",
             poster: "",
+            duration: "",
          };
         this.onInputFieldChange =  this.onInputFieldChange.bind(this);
         this.onSubmitForm = this.onSubmitForm.bind(this);
@@ -37,8 +38,7 @@ export default class Events extends Component {
             duration: this.state.duration,
             date: this.state.fromDate + " to " +  this.state.toDate,
             location:this.state.location,
-            posterUrl:
-            "https://mir-s3-cdn-cf.behance.net/project_modules/fs/f35ee593213265.5e5f0394bc88b.jpg",
+            posterUrl: this.state.poster,
         };
         hackData.push(obj);
 
@@ -65,7 +65,7 @@ export default class Events extends Component {
             <div style={{ width: "50%", height: "100%" }}>
               <h1 className="page-title">Register for event</h1>
 
-              <div style={{margin: 0}}>
+              <div style={{ margin: 0 }}>
                 <p>Name of the event</p>
                 <input
                   type="text"
@@ -101,6 +101,15 @@ export default class Events extends Component {
                 name="toDate"
                 value={this.state.toDate}
                 onChange={(evt) => this.onInputFieldChange(evt, "toDate")}
+              />
+
+              <p>To Date</p>
+              <input
+                type="text"
+                id="duration"
+                name="duration"
+                value={this.state.duration}
+                onChange={(evt) => this.onInputFieldChange(evt, "duration")}
               />
 
               <p>Location</p>
