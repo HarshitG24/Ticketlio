@@ -51,10 +51,6 @@ export default class Footer extends Component {
           {this.state.linkData.map((elem, index) => {
             return <FooterLinks key={index} data={elem} />;
           })}
-          {/* <FooterLinks />
-          <FooterLinks />
-          <FooterLinks />
-          <FooterLinks /> */}
         </div>
       </div>
     );

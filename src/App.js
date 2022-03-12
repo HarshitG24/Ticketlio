@@ -8,6 +8,7 @@ import Sports from "./Components/Sports/Sports";
 import Hackathon from "./Components/Hackathons/Hackathon";
 import Events from "./Components/Register Events/Events"
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Login from "./Components/Login/Login";
 
 class App extends Component {
 
@@ -23,14 +24,13 @@ class App extends Component {
     this.setState({
       city
     })
-
-    // alert('called');
   }
   render() {
     return (
       <BrowserRouter>
         <Navbar changeMyCity={this.changeMyCity} />
         <Routes>
+          {/* <Route path="/" element={<Login />} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies city={this.state.city} />} />
           <Route path="/sports" element={<Sports city={this.state.city} />} />
@@ -38,10 +38,7 @@ class App extends Component {
             path="/hackathons"
             element={<Hackathon city={this.state.city} />}
           />
-          <Route
-            path="/register"
-            element={<Events />}
-          />
+          <Route path="/register" element={<Events />} />
         </Routes>
         <Footer />
       </BrowserRouter>

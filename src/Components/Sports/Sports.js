@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./CSS/Sports.css"
-// import SportMatches from "./SportMatches.js";
 import SportCatgeory from "./SportCategory.js"
 
 export default class Sports extends Component {
@@ -15,10 +14,6 @@ export default class Sports extends Component {
   }
 
   render() {
-    console.log("the city on sports", this.props.city);
-    // let arr = this.state.sportData.filter(
-    //   (elem) => elem.sportMatchesData.location === this.props.city
-    // );
     return (
       <div className="sports">
         <div className="sport-img">
