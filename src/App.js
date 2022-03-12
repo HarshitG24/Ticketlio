@@ -1,12 +1,11 @@
 import "./App.css";
 import React, { Component } from "react";
 import Footer from "./Components/Footers/Footer";
-import Body from "./Components/Body/Body";
-import Navbar from "./Components/Headers/Navbar";
-import Home from "./Components/Body/Home";
-import Movies from "./Components/Body/Movies";
-import Sports from "./Components/Body/Sports";
-import Hackathon from "./Components/Body/Hackathon";
+import Navbar from "./Components/NavigationBar/Navbar";
+import Home from "./Components/Home/Home";
+import Movies from "./Components/Movies/Movies";
+import Sports from "./Components/Sports/Sports";
+import Hackathon from "./Components/Hackathons/Hackathon";
 import Events from "./Components/Register Events/Events"
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 

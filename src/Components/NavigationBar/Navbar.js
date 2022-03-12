@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./Navbar.css";
-import Movies from "../Body/Movies";
-import Home from "../Body/Home";
-import Sports from "../Body/Sports";
-import Hackathon from "../Body/Hackathon";
+import Movies from "../Movies/Movies";
+import Home from "../Home/Home";
+import Sports from "../Sports/Sports";
+import Hackathon from "../Hackathons/Hackathon";
 import Events from "../Register Events/Events"
 
 const cities = [
