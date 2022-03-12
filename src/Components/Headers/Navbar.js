@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import locationIcon from "../../Images/locationIcon.png";
 import "./Navbar.css";
 import Movies from "../Body/Movies";
-
+import Home from "../Body/Home";
+import Sports from "../Body/Sports";
+import Hackathon from "../Body/Hackathon";
+import Events from "../Register Events/Events"
 
 const cities = [
   'Please select a city',
@@ -30,10 +32,25 @@ export default class Navbar extends Component {
 
   displayPage(val) {
     console.log("displaypage ", val);
-    switch (val) {
-      case 2:
-        <Movies />;
-    }
+     switch (val) {
+       case 1:
+         return <Home />;
+
+       case 2:
+         return <Movies />;
+
+       case 3:
+         return <Sports />;
+
+       case 4:
+         return <Hackathon />;
+
+       case 5:
+         return <Events />;
+
+       default:
+         <Home />;
+     }
   }
 
   onChangeCity(evt){
@@ -73,7 +90,7 @@ export default class Navbar extends Component {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
+                <li className="nav-item" key="movies">
                   <a
                     className="navbar-option"
                     href="movies"
@@ -83,7 +100,7 @@ export default class Navbar extends Component {
                   </a>
                 </li>
 
-                <li className="nav-item">
+                <li className="nav-item" key="Sports">
                   <a
                     className="navbar-option"
                     href="Sports"
@@ -93,13 +110,23 @@ export default class Navbar extends Component {
                   </a>
                 </li>
 
-                <li className="nav-item">
+                <li className="nav-item" key="Hackathons">
                   <a
                     className="navbar-option"
                     href="Hackathons"
                     onClick={() => this.changePage(4)}
                   >
                     Hackathons
+                  </a>
+                </li>
+
+                <li className="nav-item" key="register-events">
+                  <a
+                    className="navbar-option"
+                    href="register"
+                    onClick={() => this.changePage(5)}
+                  >
+                    Register Events
                   </a>
                 </li>
               </ul>
@@ -110,28 +137,14 @@ export default class Navbar extends Component {
                   value={this.state.myCity}
                   onChange={(e) => this.onChangeCity(e)}
                 >
-                  {/* <option value="">Please select your location</option> 
-                  <option value="San Francisco">San Francisco</option>
-                  <option value="New York">New York</option>
-                  <option value="Chicago">Chicago</option>
-                  <option value="Boston">Boston</option>
-                  <option value="Los Angeles">Los Angeles</option>
-                  <option value="Seattle">Seattle</option>
-                  <option value="Atlanta">Atlanta</option>
-                  <option value="Indianapolis">Indianapolis</option> */}
-                  {
-                    cities.map(e => {
-                      return (
-                      <option value={e}>{e}</option>
-                      )
-                    })
-                  }
+                  {cities.map((e) => {
+                    return <option value={e}>{e}</option>;
+                  })}
                 </select>
               </div>
             </div>
           </div>
         </nav>
-        {this.displayPage(this.state.displayScreen)}
       </div>
     );
   }
