@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../Body/CSS/Movies.css";
+import "./CSS/Movies.css";
 import ShowTimings from "./ShowTimings";
 import MovieTicket from "./MovieTicket";
 import NoMovie from "./NoMovie";

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./FooterLinks.css";
+import "./CSS/FooterLinks.css";
 
 export default class FooterLinks extends Component {
   render() {
