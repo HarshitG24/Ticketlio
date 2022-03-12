@@ -8,6 +8,7 @@ import Home from "./Home";
 import Movies from "./Movies";
 import Sports from "./Sports";
 import Hackathon from "./Hackathon";
+import Events from "../Register Events/Events";
 
 export default class Body extends Component {
   constructor(props) {
@@ -26,6 +27,9 @@ export default class Body extends Component {
 
       case 4:
         return <Hackathon />;
+
+      case 5:
+        return <Events />;
 
       default:
         <Home />;

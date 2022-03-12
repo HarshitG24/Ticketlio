@@ -7,7 +7,7 @@ import Home from "./Components/Body/Home";
 import Movies from "./Components/Body/Movies";
 import Sports from "./Components/Body/Sports";
 import Hackathon from "./Components/Body/Hackathon";
-// import NavigationBar from "./Components/Headers/NavigationBar";
+import Events from "./Components/Register Events/Events"
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 class App extends Component {
@@ -31,15 +31,19 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Navbar changeMyCity={this.changeMyCity} />
-        {/* <Body /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies city={this.state.city} />} />
           <Route path="/sports" element={<Sports city={this.state.city} />} />
-          <Route path="/hackathons" element={<Hackathon city={this.state.city} />} />
+          <Route
+            path="/hackathons"
+            element={<Hackathon city={this.state.city} />}
+          />
+          <Route
+            path="/register"
+            element={<Events />}
+          />
         </Routes>
-
-        {/* {this.pageSelector(this.state.displayScreen)} */}
         <Footer />
       </BrowserRouter>
     );

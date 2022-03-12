@@ -43,13 +43,13 @@ export default class Footer extends Component {
     return (
       <div className="background">
         <div className="options">
-          {this.state.options.map((elem) => {
-            return <FooterOptions details={elem} />;
+          {this.state.options.map((elem, index) => {
+            return <FooterOptions key={index} details={elem} />;
           })}
         </div>
         <div className="footerLinks">
-          {this.state.linkData.map((elem) => {
-            return <FooterLinks data={elem} />;
+          {this.state.linkData.map((elem, index) => {
+            return <FooterLinks key={index} data={elem} />;
           })}
           {/* <FooterLinks />
           <FooterLinks />
