@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "./CSS/FooterLinks.css";
 
+/**
+ * To display the option in footers such as terms & conditions, careers, partnrships and much more.
+ * @component
+ */
 export default class FooterLinks extends Component {
   render() {
     const { data } = this.props;

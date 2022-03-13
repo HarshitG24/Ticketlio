@@ -4,13 +4,27 @@ import Movies from "../Movies/Movies";
 import Home from "../Home/Home";
 import Sports from "../Sports/Sports";
 import Hackathon from "../Hackathons/Hackathon";
-import Events from "../Register Events/Events"
+import Events from "../Events/Events"
 import {cities} from "../../Data/Data"
 
-
+/**
+ * @component
+ * To display the navigation bar and all the possible options in the navigation bar
+ */
 export default class Navbar extends Component {
+  /**
+   * @constructor
+   * @param {Props} props Gets the props object as a parameter
+   */
   constructor(props) {
     super(props);
+
+    /**
+     * @state
+     * @property {number} displayScreen A integer number, to keep track of the options clicked by user on navigation bar
+     * @property {string} myCity To keep track of the city selected by the user from navigation bar
+     * @property {array} cities Array which contains static data of cities
+     */
     this.state = {
       displayScreen: 1,
       myCity: "San Francisco",
@@ -18,6 +32,11 @@ export default class Navbar extends Component {
     };
   }
 
+  /**
+   * 
+   * @param {number} val An integer to determine, which page to render for the user
+   * @returns {void}
+   */
   changePage(val) {
     this.setState({
       displayScreen: val,
@@ -25,33 +44,43 @@ export default class Navbar extends Component {
     this.props.changeMyCity(this.state.cities[val]);
   }
 
+  /**
+   * 
+   * @param {number} val To display the page, as per the selection by the user.
+   * @returns {component}
+   */
   displayPage(val) {
     console.log("displaypage ", val);
-     switch (val) {
-       case 1:
-         return <Home />;
+    switch (val) {
+      case 1:
+        return <Home />;
 
-       case 2:
-         return <Movies />;
+      case 2:
+        return <Movies />;
 
-       case 3:
-         return <Sports />;
+      case 3:
+        return <Sports />;
 
-       case 4:
-         return <Hackathon />;
+      case 4:
+        return <Hackathon />;
 
-       case 5:
-         return <Events />;
+      case 5:
+        return <Events />;
 
-       default:
-         <Home />;
-     }
+      default:
+        <Home />;
+    }
   }
 
-  onChangeCity(evt){
+  /**
+   * 
+   * @param {Event} evt An evenet object, obtained from onChange function to store an integer value based on the city selected by the user
+   * @returns {void}
+   */
+  onChangeCity(evt) {
     this.setState({
-      myCity: evt.target.value
-    })
+      myCity: evt.target.value,
+    });
 
     this.props.changeMyCity(evt.target.value);
   }

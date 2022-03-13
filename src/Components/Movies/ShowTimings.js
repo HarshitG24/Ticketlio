@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import "./CSS/ShowTimings.css";
 
+/**
+ * To display to all the timings of a particular movie and theatre
+ * @component
+ */
 export default class ShowTimings extends Component {
 
-    showTimingSelected(event, index){
-        console.log(event.target.style, index);
+    /**
+     * 
+     * @param {object} event Takes an event object, which contains necessary properties 
+     * @returns {void}
+     */
+    showTimingSelected(event){
+        // console.log(event.target.style, index);
 
         if (event.target.style.borderColor !== "orange"){
                       event.target.style.borderColor = "orange";

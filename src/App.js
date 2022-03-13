@@ -6,7 +6,7 @@ import Home from "./Components/Home/Home";
 import Movies from "./Components/Movies/Movies";
 import Sports from "./Components/Sports/Sports";
 import Hackathon from "./Components/Hackathons/Hackathon";
-import Events from "./Components/Register Events/Events"
+import Events from "./Components/Events/Events"
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Login from "./Components/Login/Login";
 

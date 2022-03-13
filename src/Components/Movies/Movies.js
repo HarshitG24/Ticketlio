@@ -5,60 +5,80 @@ import MovieTicket from "./MovieTicket";
 import NoMovie from "./NoMovie";
 import { theatres } from "../../Data/Data";
 
+/**
+ * To display all the movies 
+ * @component
+ */
 class Movies extends Component {
-
-  constructor(props){
+  /**
+   * @constructor
+   * @param {props} props Takes in all the props
+   */
+  constructor(props) {
     super(props);
-    console.log('The city i get here is', this.props.city);
     this.updateRemainingTickets = this.updateRemainingTickets.bind(this);
+    let moviedata = localStorage.getItem("movies-data");
 
-    let moviedata = localStorage.getItem("movies-data")
+    /**
+     * @state
+     * @property {string} city Value stored from props here
+     * @property {string} theatreName The theatre selected by the user
+     * @property {object} actualMovieData The data for all movies
+     * @property {object} movieData The data for all movies
+     * @property {array} theatres The list of all theatres
+     */
     this.state = {
       city: this.props.city,
-      // ticketCount: 0,
       theatreName: "",
-      movieName: "",
       actualMovieData: JSON.parse(moviedata),
       movieData: JSON.parse(moviedata),
       theatres,
     };
   }
 
-  changeTheatre(evt){
-    console.log('my current city', this.props.city)
-    let data = this.state.actualMovieData;
-    data = data.filter(e => (e.theatre.toLowerCase() === evt.target.value.toLowerCase() && e.city === this.props.city));
-        this.setState({
-          theatreName: evt.target.value,
-          movieData: data,
-        });
+  /**
+   * Changes the Theatre selected by the user
+   * @param {Event} evt Takes an Event object
+   * @returns {void}
+   */
+  changeTheatre(evt) {
+    let data = JSON.parse(localStorage.getItem("movies-data")); //JSON.parse(JSON.stringify(this.state.actualMovieData));
+    data = data.filter(
+      (e) =>
+        e.theatre.toLowerCase() === evt.target.value.toLowerCase() &&
+        e.city === this.props.city
+    );
+
+    console.log("data is", data);
+    this.setState({
+      theatreName: evt.target.value,
+      movieData: data,
+    });
   }
 
-  // enterTickets(evt){
-  //   this.setState({
-  //     ticketCount: evt.target.value,
-  //   });
-  // }
+  /**
+   *
+   * @param {string} val Takes the value entered by the user
+   * @param {number} index Takes the index of the row at which the change was made
+   * @returns {void}
+   */
 
-  updateRemainingTickets(val, index){
-    console.log("val is", val);
-    if(val !== "" && val !== '0' && val !== 0 ){
-            let movieData = [...this.state.actualMovieData];
-            let tempData = movieData[index];
-            tempData.remainingTickets = `${
-              parseInt(tempData.remainingTickets) - parseInt(val || "0")
-            }`;
-            movieData[index] = tempData;
+  updateRemainingTickets(val, index) {
+    if (val !== "" && val !== "0" && val !== 0) {
+      let movieData = [...this.state.actualMovieData];
+      let tempData = movieData[index];
+      tempData.remainingTickets = `${
+        parseInt(tempData.remainingTickets) - parseInt(val || "0")
+      }`;
+      movieData[index] = tempData;
 
-            this.setState({
-              movieData: movieData,
-            });
+      this.setState({
+        movieData: movieData,
+      });
     } else {
       let movieData = [...this.state.actualMovieData];
       let tempData = movieData[index];
       movieData[index] = tempData;
-      console.log("tempData", tempData);
-
 
       this.setState({
         movieData: movieData,
@@ -86,7 +106,9 @@ class Movies extends Component {
         </div>
 
         <div>
-          {this.state.theatreName && this.state.movieData ? (
+          {this.props.city !== "Please select a city" &&
+          this.state.theatreName &&
+          this.state.movieData.length > 0 ? (
             this.state.movieData.map((elem, index) => {
               return (
                 <div className="movie-box">
