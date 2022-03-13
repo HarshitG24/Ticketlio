@@ -27,8 +27,7 @@ class App extends Component {
   }
   render() {
     return (
-      // <BrowserRouter>
-      <div>
+      <BrowserRouter>
         <Navbar changeMyCity={this.changeMyCity} />
         <Routes>
           {/* <Route path="/" element={<Login />} /> */}
@@ -48,8 +47,7 @@ class App extends Component {
           <Route path="/Ticketlio/register" element={<Events />} />
         </Routes>
         <Footer />
-      </div>
-      // </BrowserRouter>
+      </BrowserRouter>
     );
   }
 }
