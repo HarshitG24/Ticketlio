@@ -32,7 +32,7 @@ class Events extends Component {
       poster: "",
       duration: "",
       formattedToDate: "",
-      formmattedFromDate: "",
+      formattedFromDate: "",
     };
     this.onInputFieldChange = this.onInputFieldChange.bind(this);
     this.onSubmitForm = this.onSubmitForm.bind(this);
@@ -107,7 +107,7 @@ class Events extends Component {
       title: this.state.name,
       description: this.state.description,
       duration: this.state.duration,
-      date: this.state.formmattedFromDate + " to " + this.state.formattedToDate,
+      date: this.state.formattedFromDate + " to " + this.state.formattedToDate,
       location: this.state.location,
       posterUrl: this.state.poster,
     };
@@ -116,12 +116,16 @@ class Events extends Component {
     localStorage.setItem("hackathon-data", JSON.stringify(hackData));
 
     this.setState({
-      title: "",
+      name: "",
       description: "",
       duration: "",
       date: "",
       location: "",
-      posterUrl: "",
+      poster: "",
+      formattedToDate: "",
+      formattedFromDate: "",
+      fromDate: "",
+      toDate: ""
     });
 
     alert(
@@ -138,21 +142,21 @@ class Events extends Component {
     const {
       name,
       description,
-      formmattedFromDate,
-      formattedToDate,
+      fromDate,
+      toDate,
       location,
       poster,
       duration,
     } = this.state;
 
     return (
-      name !== "" ||
-      description !== "" ||
-      formmattedFromDate !== "" ||
-      formattedToDate !== "" ||
-      location !== "" ||
-      poster !== "" ||
-      duration !== ""
+      name === "" ||
+      description === "" ||
+      fromDate === "" ||
+      toDate === "" ||
+      location === "" ||
+      poster === "" ||
+      duration === ""
     );
   }
 
@@ -259,9 +263,9 @@ class Events extends Component {
           </div>
 
           <button
-            className="submit-event-btn"
+            className= {dis ? "submit-event-btn-disabled" : "submit-event-btn"}
             onClick={() => this.onSubmitForm()}
-            disabled={false}
+            disabled={dis}
           >
             Submit
           </button>
