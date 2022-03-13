@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Ticketlio/static/css/main.4ca05351.css",
-    "main.js": "/Ticketlio/static/js/main.8c6cb975.js",
+    "main.js": "/Ticketlio/static/js/main.d3f6617b.js",
     "static/js/787.0bd18e4d.chunk.js": "/Ticketlio/static/js/787.0bd18e4d.chunk.js",
     "static/media/subscription.png": "/Ticketlio/static/media/subscription.6223a603b9e2b08a3805.png",
     "static/media/hours.png": "/Ticketlio/static/media/hours.9d2ce2a491120ffe48c6.png",
     "static/media/cancellation.png": "/Ticketlio/static/media/cancellation.de8d74f7b029194a3ca7.png",
     "index.html": "/Ticketlio/index.html",
     "main.4ca05351.css.map": "/Ticketlio/static/css/main.4ca05351.css.map",
-    "main.8c6cb975.js.map": "/Ticketlio/static/js/main.8c6cb975.js.map",
+    "main.d3f6617b.js.map": "/Ticketlio/static/js/main.d3f6617b.js.map",
     "787.0bd18e4d.chunk.js.map": "/Ticketlio/static/js/787.0bd18e4d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4ca05351.css",
-    "static/js/main.8c6cb975.js"
+    "static/js/main.d3f6617b.js"
   ]
 }
