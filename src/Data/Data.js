@@ -220,4 +220,49 @@ const hackathonData = [
   },
 ];
 
-export {moviesData, sportsData, hackathonData};
+const options = [
+  {
+    value: "1",
+    imageText: "Customer Support",
+  },
+  {
+    value: "2",
+    imageText: "Subscribe Us",
+  },
+  {
+    value: "3",
+    imageText: "Cancellation Policy",
+  },
+];
+
+const linkData = [
+  {
+    title: "Partnerships",
+    options: ["Websites", "Social Media", "Branding"],
+  },
+  {
+    title: "About Us",
+    options: ["Our Projects", "Careers"],
+  },
+  {
+    title: "Legal",
+    options: ["Terms & Conditions", "Privacy Policy", "Terms of Use"],
+  },
+  {
+    title: "Careers",
+    options: ["Developer", "Marketing"],
+  },
+];
+
+const theatres = ["PVR", "INOX", "IBIS"];
+
+const cities = [
+  'Please select a city',
+  'San Francisco',
+  'Boston',
+  'Seattle',
+  'New York',
+  'Atlanta'
+]
+
+export {moviesData, sportsData, hackathonData, options, linkData, theatres, cities};
