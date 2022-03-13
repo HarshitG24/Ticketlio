@@ -30,4 +30,4 @@ Have made use of Localstorage for persist storgae functionality
 ## Design Document Link
 This is the link: https://github.com/HarshitG24/Project1-DesignDocument
 1. Please clone the repo above and checkout to main branch
-2. This repo should contain the word document
+2. This repo should contain the pdf document
