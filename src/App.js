@@ -31,7 +31,7 @@ class App extends Component {
         <Navbar changeMyCity={this.changeMyCity} />
         <Routes>
           {/* <Route path="/" element={<Login />} /> */}
-          <Route path="/ticketlio" element={<Home />} />
+          <Route path="/Ticketlio" element={<Home />} />
           <Route
             path="/Ticketlio/movies"
             element={<Movies city={this.state.city} />}
