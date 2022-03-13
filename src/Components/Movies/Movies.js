@@ -38,7 +38,7 @@ class Movies extends Component {
 
   /**
    * Changes the Theatre selected by the user
-   * @param {Event} evt Takes an Event object
+   * @param {object} evt Takes an Event object
    * @returns {void}
    */
   changeTheatre(evt) {
