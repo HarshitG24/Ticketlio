@@ -49,7 +49,6 @@ class Movies extends Component {
         e.city === this.props.city
     );
 
-    console.log("data is", data);
     this.setState({
       theatreName: evt.target.value,
       movieData: data,
@@ -155,7 +154,7 @@ class Movies extends Component {
                           updateRemainingTickets={this.updateRemainingTickets}
                         />
                         {/* <p>Tickets available: {elem.remainingTickets}</p> */}
-                        <button className="book-movie-btn">Book Tickets</button>
+                        <button className="book-movie-btn" onClick={() => alert('Thank you for booking the tickets')}>Book Tickets</button>
                       </div>
                     </div>
                   </div>
