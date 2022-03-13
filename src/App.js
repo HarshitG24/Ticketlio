@@ -31,20 +31,20 @@ class App extends Component {
         <Navbar changeMyCity={this.changeMyCity} />
         <Routes>
           {/* <Route path="/" element={<Login />} /> */}
-          <Route path="/Ticketlio" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route
-            path="/Ticketlio/movies"
+            path="/movies"
             element={<Movies city={this.state.city} />}
           />
           <Route
-            path="/Ticketlio/sports"
+            path="/sports"
             element={<Sports city={this.state.city} />}
           />
           <Route
-            path="/Ticketlio/hackathons"
+            path="/hackathons"
             element={<Hackathon city={this.state.city} />}
           />
-          <Route path="/Ticketlio/register" element={<Events />} />
+          <Route path="/register" element={<Events />} />
         </Routes>
         <Footer />
       </BrowserRouter>
