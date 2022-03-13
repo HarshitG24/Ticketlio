@@ -27,4 +27,7 @@ Have made use of Localstorage for persist storgae functionality
 5. So now, if they go to hackathons page they can see their hackathon event for the given city they entered
 6. Even upon switching the tabs in website or refreshing the pages, still the data will be seen, because it is persisted
 
-
+## Design Document Link
+This is the link: https://github.com/HarshitG24/Project1-DesignDocument
+1. Please clone the repo above and checkout to main branch
+2. This repo should contain the word document
