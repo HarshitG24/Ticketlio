@@ -6,7 +6,7 @@ import HackData from './HackData';
  * To display all the hackathons, based on the location entered by the user.
  * @component
  */
-export default class HackathonBody extends Component {
+class HackathonBody extends Component {
   /**
    *
    * @param {number} index To determine the index of the row selected by the user.
@@ -22,7 +22,7 @@ export default class HackathonBody extends Component {
 
   /**
    * @constructor
-   * @param {Props} props Gets the props object as a parameter
+   * @param {object} props Gets the props object as a parameter
    */
   constructor(props) {
     super(props);
@@ -97,3 +97,5 @@ export default class HackathonBody extends Component {
     );
   }
 }
+
+export default HackathonBody;

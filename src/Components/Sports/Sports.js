@@ -2,11 +2,23 @@ import React, { Component } from "react";
 import "./CSS/Sports.css"
 import SportCatgeory from "./SportCategory.js"
 
-export default class Sports extends Component {
+/**
+ * To display the sports page
+ * @component
+ */
+class Sports extends Component {
 
+  /**
+   * @constructor
+   * @param {object} props Takes the props object
+   */
   constructor(props){
     super(props);
 
+    /**
+     * @state
+     * @property {array} sportData Contains all the static data of sports
+     */
     let sportData = JSON.parse(localStorage.getItem("sports-data"));
     this.state={
       sportData
@@ -37,3 +49,5 @@ export default class Sports extends Component {
     );
   }
 }
+
+export default Sports;

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Events/Events.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Events/Events.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+import "./Events.css"
+import {cities} from "../../Data/Data"
+
+/**
+ * To display a form to register for events
+ * @component
+ */
+class Events extends Component {
+  /**
+   * @constructor
+   * @param {object} props Gets the props object as a parameter
+   */
+  constructor(props) {
+    super(props);
+
+    /**
+     * @state
+     * @property {string} name To store name of the event
+     * @property {string} description To store description of the event
+     * @property {string} fromDate To store fromDate of the event
+     * @property {string} toDate To store toDate of the event
+     * @property {string} poster To store poster's url of the event
+     * @property {string} duration To store duration of the event
+     */
+    this.state = {
+      name: "",
+      description: "",
+      fromDate: "",
+      toDate: "",
+      location: "",
+      poster: "",
+      duration: "",
+      formattedToDate: "",
+      formmattedFromDate: "",
+    };
+    this.onInputFieldChange = this.onInputFieldChange.bind(this);
+    this.onSubmitForm = this.onSubmitForm.bind(this);
+  }
+
+  /**
+   *
+   * @param {object} evt Event object returned from onChange function, which contains value entered by the user
+   * @param {string} key To determine the key in state object, for storing the value
+   * @returns {void}
+   */
+
+  onInputFieldChange(evt, key) {
+    console.log("value is", evt.target.value);
+    this.setState({
+      [key]: evt.target.value,
+    });
+  }
+
+  /**
+   *
+   * @param {object} evt Event object returned from onChange function, which contains value entered by the user
+   * @param {string} key To determine the key in state object, for storing the value
+   * @returns {void}
+   */
+  onGetDate(evt, key) {
+    let dateVal = evt.target.value;
+    dateVal = dateVal.split("-");
+
+    let date = dateVal[2];
+    let month = this.generateMonth(dateVal[1]);
+    let year = dateVal[0];
+
+    this.setState({
+      [key]: `${date} ${month}, ${year}`,
+    });
+  }
+
+  /**
+   *
+   * @param {number} key To determine the month from number
+   * @returns {string}
+   */
+  generateMonth(key) {
+    let arr = [
+      "January",
+      "Febraury",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    return arr[parseInt(key)];
+  }
+
+  /**
+   * @param {void}
+   * @returns {void}
+   * To submit the data in the form filled by the user.
+   */
+  onSubmitForm() {
+    console.log("data is submitted");
+    const hackData = JSON.parse(localStorage.getItem("hackathon-data"));
+    let obj = {
+      title: this.state.name,
+      description: this.state.description,
+      duration: this.state.duration,
+      date: this.state.formmattedFromDate + " to " + this.state.formattedToDate,
+      location: this.state.location,
+      posterUrl: this.state.poster,
+    };
+    hackData.push(obj);
+
+    localStorage.setItem("hackathon-data", JSON.stringify(hackData));
+
+    this.setState({
+      title: "",
+      description: "",
+      duration: "",
+      date: "",
+      location: "",
+      posterUrl: "",
+    });
+
+    alert(
+      "Thank you for registering the event, we have listed it for the users"
+    );
+  }
+
+  /**
+   * @param {void}
+   * @returns {boolean}
+   * To determine if the button has to be disabled or not.
+   */
+  disableSubmitBtn() {
+    const {
+      name,
+      description,
+      formmattedFromDate,
+      formattedToDate,
+      location,
+      poster,
+      duration,
+    } = this.state;
+
+    return (
+      name !== "" ||
+      description !== "" ||
+      formmattedFromDate !== "" ||
+      formattedToDate !== "" ||
+      location !== "" ||
+      poster !== "" ||
+      duration !== ""
+    );
+  }
+
+  render() {
+    let dis = this.disableSubmitBtn();
+    return (
+      &lt;div className="events">
+        &lt;div className="title-div">
+          &lt;div>
+            &lt;h1 className="page-title">Register for event&lt;/h1>
+          &lt;/div>
+
+          &lt;div className="option-div">
+            &lt;p className="option-p">Name of the event&lt;/p>
+            &lt;input
+              type="text"
+              id="name"
+              name="name"
+              className="event-input"
+              value={this.state.name}
+              onChange={(evt) => this.onInputFieldChange(evt, "name")}
+            />
+          &lt;/div>
+
+          &lt;div className="option-div">
+            &lt;p className="option-p">Description&lt;/p>
+            &lt;input
+              type="text"
+              id="description"
+              name="description"
+              className="event-input"
+              value={this.state.description}
+              onChange={(evt) => this.onInputFieldChange(evt, "description")}
+            />
+          &lt;/div>
+
+          &lt;div className="option-div">
+            &lt;p className="option-p">From Date&lt;/p>
+            &lt;input
+              type="date"
+              id="fromDate"
+              name="fromDate"
+              className="event-input"
+              value={this.state.fromDate}
+              onChange={(evt) => {
+                this.onInputFieldChange(evt, "fromDate");
+                this.onGetDate(evt, "formattedFromDate");
+              }}
+            />
+          &lt;/div>
+
+          &lt;div className="option-div">
+            &lt;p className="option-p">To Date&lt;/p>
+            &lt;input
+              type="date"
+              id="toDate"
+              name="toDate"
+              className="event-input"
+              value={this.state.toDate}
+              onChange={(evt) => {
+                this.onInputFieldChange(evt, "toDate");
+                this.onGetDate(evt, "formattedToDate");
+              }}
+            />
+          &lt;/div>
+
+          &lt;div className="option-div">
+            &lt;p className="option-p">Number of Days&lt;/p>
+            &lt;input
+              type="text"
+              id="duration"
+              name="duration"
+              className="event-input"
+              value={this.state.duration}
+              onChange={(evt) => this.onInputFieldChange(evt, "duration")}
+            />
+          &lt;/div>
+
+          &lt;div className="option-div">
+            &lt;p className="option-p">Location&lt;/p>
+            &lt;select
+              name="cityList"
+              id="cityList"
+              value={this.state.location}
+              className="city-select"
+              onChange={(evt) => this.onInputFieldChange(evt, "location")}
+            >
+              {cities.map((e) => {
+                return &lt;option value={e}>{e}&lt;/option>;
+              })}
+            &lt;/select>
+          &lt;/div>
+
+          &lt;div className="option-div">
+            &lt;p className="option-p">Poster URL&lt;/p>
+            &lt;input
+              type="text"
+              id="poster"
+              name="poster"
+              className="event-input"
+              value={this.state.poster}
+              onChange={(evt) => this.onInputFieldChange(evt, "poster")}
+            />
+          &lt;/div>
+
+          &lt;button
+            className="submit-event-btn"
+            onClick={() => this.onSubmitForm()}
+            disabled={false}
+          >
+            Submit
+          &lt;/button>
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+
+export default Events;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Events.html">Events</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FooterLinks.html">FooterLinks</a></li><li><a href="FooterOptions.html">FooterOptions</a></li><li><a href="Hackathon.html">Hackathon</a></li><li><a href="HackathonBody.html">HackathonBody</a></li><li><a href="HackData.html">HackData</a></li><li><a href="Home.html">Home</a></li><li><a href="Movies.html">Movies</a></li><li><a href="MovieTicket.html">MovieTicket</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="NoMovie.html">NoMovie</a></li><li><a href="ShowTimings.html">ShowTimings</a></li><li><a href="SportCategory.html">SportCategory</a></li><li><a href="SportMatches.html">SportMatches</a></li><li><a href="Sports.html">Sports</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Mar 13 2022 13:18:27 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

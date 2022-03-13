@@ -5,7 +5,7 @@ import "./CSS/ShowTimings.css";
  * To display to all the timings of a particular movie and theatre
  * @component
  */
-export default class ShowTimings extends Component {
+class ShowTimings extends Component {
 
     /**
      * 
@@ -44,3 +44,5 @@ export default class ShowTimings extends Component {
         );
     }
 }
+
+export default ShowTimings;

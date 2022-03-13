@@ -3,8 +3,17 @@ import "./CSS/SportMatches.css"
 
 // "https://ca-times.brightspotcdn.com/dims4/default/03f4294/2147483647/strip/true/crop/1800x1174+0+0/resize/840x548!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F37%2Fd0%2F10e71e0349c8beb0088a2d202266%2Fsports-clip-art.jpg"
 
-export default class SportMatches extends Component {
 
+/**
+ * To display all the matches of sport
+ * @component
+ */
+class SportMatches extends Component {
+
+  /**
+   * @constructor
+   * @param {object} props Takes the props object
+   */
   constructor(props){
     super(props);
     this.bookTickets = this.bookTickets.bind(this);
@@ -59,3 +68,5 @@ export default class SportMatches extends Component {
         );
     }
 }
+
+export default SportMatches;

@@ -3,10 +3,10 @@ import "./Home.css";
 import {moviesData, sportsData, hackathonData} from "../../Data/Data.js"
 
 /**
- * @component
  * To display the home page of website, which contains images and description about features of the website
+ * @component
  */
-export default class Home extends Component {
+class Home extends Component {
 
   /**
    * @param {void}
@@ -75,3 +75,4 @@ export default class Home extends Component {
     );
   }
 }
+export default Home;
