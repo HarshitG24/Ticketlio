@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./CSS/FooterLinks.css";
+import PropTypes from "prop-types";
 
 /**
  * To display the option in footers such as terms & conditions, careers, partnrships and much more.
  * @component
  */
-export default class FooterLinks extends Component {
+class FooterLinks extends Component {
   render() {
     const { data } = this.props;
     return (
@@ -20,3 +21,11 @@ export default class FooterLinks extends Component {
     );
   }
 }
+
+// FooterLinks.prototype = {
+//   data: PropTypes.object,
+// }
+
+// export default FooterLinks;
+
+export default FooterLinks;

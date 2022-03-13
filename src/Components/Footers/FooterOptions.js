@@ -8,7 +8,7 @@ import "./CSS/FooterOptions.css";
  * To display the options of cancellation, customer care and subscription
  * @component
  */
-export default class FooterOptions extends Component {
+class FooterOptions extends Component {
   /**
    * 
    * @param {string} value Receives an integer as string to determine which image to be shown in footer.
@@ -38,3 +38,5 @@ export default class FooterOptions extends Component {
     );
   }
 }
+
+export default FooterOptions;

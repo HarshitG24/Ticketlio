@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import SportMatches from './SportMatches';
 import "./CSS/SportMatches.css";
 
-export default class SportCategory extends Component {
+/**
+ * To display all the categories of sports
+ * @component
+ */
+class SportCategory extends Component {
     render() {
       const {category, matches} = this.props;
       let arr = matches.filter(elem => elem.location === this.props.city);
@@ -24,3 +28,5 @@ export default class SportCategory extends Component {
         );
     }
 }
+
+export default SportCategory;

@@ -8,13 +8,13 @@ import Events from "../Events/Events"
 import {cities} from "../../Data/Data"
 
 /**
- * @component
  * To display the navigation bar and all the possible options in the navigation bar
+ * @component
  */
-export default class Navbar extends Component {
+class Navbar extends Component {
   /**
    * @constructor
-   * @param {Props} props Gets the props object as a parameter
+   * @param {object} props Gets the props object as a parameter
    */
   constructor(props) {
     super(props);
@@ -47,7 +47,7 @@ export default class Navbar extends Component {
   /**
    * 
    * @param {number} val To display the page, as per the selection by the user.
-   * @returns {component}
+   * @returns {symbol}
    */
   displayPage(val) {
     console.log("displaypage ", val);
@@ -173,3 +173,4 @@ export default class Navbar extends Component {
     );
   }
 }
+export default Navbar;

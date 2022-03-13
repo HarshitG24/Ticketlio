@@ -6,10 +6,10 @@ import {cities} from "../../Data/Data"
  * To display a form to register for events
  * @component
  */
-export default class Events extends Component {
+class Events extends Component {
   /**
    * @constructor
-   * @param {Props} props Gets the props object as a parameter
+   * @param {object} props Gets the props object as a parameter
    */
   constructor(props) {
     super(props);
@@ -32,7 +32,7 @@ export default class Events extends Component {
       poster: "",
       duration: "",
       formattedToDate: "",
-      formmattedFromDate: ""
+      formmattedFromDate: "",
     };
     this.onInputFieldChange = this.onInputFieldChange.bind(this);
     this.onSubmitForm = this.onSubmitForm.bind(this);
@@ -40,7 +40,7 @@ export default class Events extends Component {
 
   /**
    *
-   * @param {Event} evt Event object returned from onChange function, which contains value entered by the user
+   * @param {object} evt Event object returned from onChange function, which contains value entered by the user
    * @param {string} key To determine the key in state object, for storing the value
    * @returns {void}
    */
@@ -54,7 +54,7 @@ export default class Events extends Component {
 
   /**
    *
-   * @param {Event} evt Event object returned from onChange function, which contains value entered by the user
+   * @param {object} evt Event object returned from onChange function, which contains value entered by the user
    * @param {string} key To determine the key in state object, for storing the value
    * @returns {void}
    */
@@ -129,6 +129,11 @@ export default class Events extends Component {
     );
   }
 
+  /**
+   * @param {void}
+   * @returns {boolean}
+   * To determine if the button has to be disabled or not.
+   */
   disableSubmitBtn() {
     const {
       name,
@@ -193,8 +198,8 @@ export default class Events extends Component {
               className="event-input"
               value={this.state.fromDate}
               onChange={(evt) => {
-                this.onInputFieldChange(evt, "fromDate")
-                this.onGetDate(evt, "formattedFromDate")
+                this.onInputFieldChange(evt, "fromDate");
+                this.onGetDate(evt, "formattedFromDate");
               }}
             />
           </div>
@@ -265,3 +270,5 @@ export default class Events extends Component {
     );
   }
 }
+
+export default Events;

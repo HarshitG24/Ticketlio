@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import "./CSS/HackathonBody.css";
 
 /**
- * @component
  * To display details of hackathon such as duration, location, date
+ * @component
  */
 class HackData extends Component {
     render() { 

@@ -3,9 +3,10 @@ import "./CSS/Hackathon.css"
 import HackathonBody from "./HackathonBody";
 
 /**
+ * To display all the hackathons on the page
  * @component
  */
-export default class Hackathon extends Component {
+class Hackathon extends Component {
   render() {
     return (
       <div className="hackathon">
@@ -22,3 +23,4 @@ export default class Hackathon extends Component {
     );
   }
 }
+export default Hackathon;

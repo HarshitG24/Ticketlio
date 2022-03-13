@@ -5,10 +5,10 @@ import "./CSS/MovieTicket.css";
  * To display input number field for ticket
  * @component
  */
-export default class MovieTicket extends Component {
+class MovieTicket extends Component {
   /**
    * @constructor
-   * @param {props} props Takes in all the props
+   * @param {object} props Takes in all the props
    */
   constructor(props) {
     super(props);
@@ -74,3 +74,5 @@ export default class MovieTicket extends Component {
     );
   }
 }
+
+export default MovieTicket;

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Movies/Movies.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Movies/Movies.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+import "./CSS/Movies.css";
+import ShowTimings from "./ShowTimings";
+import MovieTicket from "./MovieTicket";
+import NoMovie from "./NoMovie";
+import { theatres } from "../../Data/Data";
+
+/**
+ * To display all the movies 
+ * @component
+ */
+class Movies extends Component {
+  /**
+   * @constructor
+   * @param {props} props Takes in all the props
+   */
+  constructor(props) {
+    super(props);
+    this.updateRemainingTickets = this.updateRemainingTickets.bind(this);
+    let moviedata = localStorage.getItem("movies-data");
+
+    /**
+     * @state
+     * @property {string} city Value stored from props here
+     * @property {string} theatreName The theatre selected by the user
+     * @property {object} actualMovieData The data for all movies
+     * @property {object} movieData The data for all movies
+     * @property {array} theatres The list of all theatres
+     */
+    this.state = {
+      city: this.props.city,
+      theatreName: "",
+      actualMovieData: JSON.parse(moviedata),
+      movieData: JSON.parse(moviedata),
+      theatres,
+    };
+  }
+
+  /**
+   * Changes the Theatre selected by the user
+   * @param {Event} evt Takes an Event object
+   * @returns {void}
+   */
+  changeTheatre(evt) {
+    let data = JSON.parse(localStorage.getItem("movies-data")); //JSON.parse(JSON.stringify(this.state.actualMovieData));
+    data = data.filter(
+      (e) =>
+        e.theatre.toLowerCase() === evt.target.value.toLowerCase() &amp;&amp;
+        e.city === this.props.city
+    );
+
+    console.log("data is", data);
+    this.setState({
+      theatreName: evt.target.value,
+      movieData: data,
+    });
+  }
+
+  /**
+   *
+   * @param {string} val Takes the value entered by the user
+   * @param {number} index Takes the index of the row at which the change was made
+   * @returns {void}
+   */
+
+  updateRemainingTickets(val, index) {
+    if (val !== "" &amp;&amp; val !== "0" &amp;&amp; val !== 0) {
+      let movieData = [...this.state.actualMovieData];
+      let tempData = movieData[index];
+      tempData.remainingTickets = `${
+        parseInt(tempData.remainingTickets) - parseInt(val || "0")
+      }`;
+      movieData[index] = tempData;
+
+      this.setState({
+        movieData: movieData,
+      });
+    } else {
+      let movieData = [...this.state.actualMovieData];
+      let tempData = movieData[index];
+      movieData[index] = tempData;
+
+      this.setState({
+        movieData: movieData,
+      });
+    }
+  }
+
+  render() {
+    return (
+      &lt;div>
+        &lt;h1 className="movie-title">Movies&lt;/h1>
+
+        &lt;div className="movie-filters">
+          &lt;p className="select-cinema">Select Cinema&lt;/p>
+          &lt;select
+            name="movieList"
+            id="movieList"
+            onChange={(e) => this.changeTheatre(e)}
+          >
+            &lt;option value="">Please select a theatre&lt;/option> 
+            {this.state.theatres.map((e) => {
+              return &lt;option value={e}>{e}&lt;/option>;
+            })}
+          &lt;/select>
+        &lt;/div>
+
+        &lt;div>
+          {this.props.city !== "Please select a city" &amp;&amp;
+          this.state.theatreName &amp;&amp;
+          this.state.movieData.length > 0 ? (
+            this.state.movieData.map((elem, index) => {
+              return (
+                &lt;div className="movie-box">
+                  &lt;div>
+                    &lt;img
+                      src={elem.posterUrl}
+                      alt="new"
+                      className="movie-poster"
+                    />
+                  &lt;/div>
+                  &lt;div className="movie-details">
+                    &lt;p className="movies-name">{elem.title}&lt;/p>
+                    &lt;p className="movie-desc">{elem.description}&lt;/p>
+                    &lt;p className="timings">Show Timings:&lt;/p>
+                    &lt;ShowTimings timings={elem.showTimings} />
+
+                    &lt;div className="theatre-name">
+                      &lt;p className="theatre">Theatre:&lt;/p>
+                      &lt;p>{elem.theatre}&lt;/p>
+                    &lt;/div>
+
+                    &lt;div className="theatre-name">
+                      &lt;p className="theatre">Date:&lt;/p>
+                      &lt;p>March 9, 2022&lt;/p>
+                    &lt;/div>
+
+                    &lt;div className="theatre-name">
+                      &lt;p className="theatre">City:&lt;/p>
+                      &lt;p>{this.props.city}&lt;/p>
+                    &lt;/div>
+
+                    &lt;p className="theatre">Number of tickets:&lt;/p>
+                    &lt;div className="book-tickets">
+                      &lt;div
+                        style={{
+                          width: "100%",
+                          display: "flex",
+                          flexDirection: "row",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        &lt;MovieTicket
+                          rowNumber={index}
+                          updateRemainingTickets={this.updateRemainingTickets}
+                        />
+                        {/* &lt;p>Tickets available: {elem.remainingTickets}&lt;/p> */}
+                        &lt;button className="book-movie-btn">Book Tickets&lt;/button>
+                      &lt;/div>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/div>
+              );
+            })
+          ) : (
+            &lt;NoMovie />
+          )}
+        &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+
+export default Movies;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Events.html">Events</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FooterLinks.html">FooterLinks</a></li><li><a href="FooterOptions.html">FooterOptions</a></li><li><a href="Hackathon.html">Hackathon</a></li><li><a href="HackathonBody.html">HackathonBody</a></li><li><a href="HackData.html">HackData</a></li><li><a href="Home.html">Home</a></li><li><a href="Movies.html">Movies</a></li><li><a href="MovieTicket.html">MovieTicket</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="NoMovie.html">NoMovie</a></li><li><a href="ShowTimings.html">ShowTimings</a></li><li><a href="SportCategory.html">SportCategory</a></li><li><a href="SportMatches.html">SportMatches</a></li><li><a href="Sports.html">Sports</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Mar 13 2022 13:18:27 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
