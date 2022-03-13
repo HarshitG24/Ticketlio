@@ -3,13 +3,7 @@ import "./CSS/Movies.css";
 import ShowTimings from "./ShowTimings";
 import MovieTicket from "./MovieTicket";
 import NoMovie from "./NoMovie";
-
-
-const theatres = [
-  'PVR',
-  'INOX',
-  'IBIS'
-]
+import { theatres } from "../../Data/Data";
 
 class Movies extends Component {
 
@@ -26,6 +20,7 @@ class Movies extends Component {
       movieName: "",
       actualMovieData: JSON.parse(moviedata),
       movieData: JSON.parse(moviedata),
+      theatres,
     };
   }
 
@@ -84,19 +79,14 @@ class Movies extends Component {
             onChange={(e) => this.changeTheatre(e)}
           >
             <option value="">Please select a theatre</option> 
-            {
-              theatres.map(e => {
-                return(
-                  <option value={e}>{e}</option>
-                )
-              })
-            }
+            {this.state.theatres.map((e) => {
+              return <option value={e}>{e}</option>;
+            })}
           </select>
-
         </div>
 
         <div>
-          {this.state.theatreName && this.state.movieData ?
+          {this.state.theatreName && this.state.movieData ? (
             this.state.movieData.map((elem, index) => {
               return (
                 <div className="movie-box">
@@ -149,7 +139,10 @@ class Movies extends Component {
                   </div>
                 </div>
               );
-            }) : <NoMovie />}
+            })
+          ) : (
+            <NoMovie />
+          )}
         </div>
       </div>
     );

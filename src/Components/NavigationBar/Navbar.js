@@ -5,21 +5,16 @@ import Home from "../Home/Home";
 import Sports from "../Sports/Sports";
 import Hackathon from "../Hackathons/Hackathon";
 import Events from "../Register Events/Events"
+import {cities} from "../../Data/Data"
 
-const cities = [
-  'Please select a city',
-  'San Francisco',
-  'Boston',
-  'Seattle',
-  'New York',
-  'Atlanta'
-]
+
 export default class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displayScreen: 1,
       myCity: "San Francisco",
+      cities,
     };
   }
 
@@ -27,7 +22,7 @@ export default class Navbar extends Component {
     this.setState({
       displayScreen: val,
     });
-    this.props.changeMyCity(cities[val]);
+    this.props.changeMyCity(this.state.cities[val]);
   }
 
   displayPage(val) {
@@ -137,7 +132,7 @@ export default class Navbar extends Component {
                   value={this.state.myCity}
                   onChange={(e) => this.onChangeCity(e)}
                 >
-                  {cities.map((e) => {
+                  {this.state.cities.map((e) => {
                     return <option value={e}>{e}</option>;
                   })}
                 </select>
