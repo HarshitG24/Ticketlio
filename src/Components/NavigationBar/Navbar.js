@@ -127,7 +127,7 @@ class Navbar extends Component {
                 <li className="nav-item" key="Sports">
                   <a
                     className="navbar-option"
-                    href="Sports"
+                    href="/Ticketlio/sports"
                     onClick={() => this.changePage(3)}
                   >
                     Sports
@@ -137,7 +137,7 @@ class Navbar extends Component {
                 <li className="nav-item" key="Hackathons">
                   <a
                     className="navbar-option"
-                    href="/Ticketlio/Hackathons"
+                    href="/Ticketlio/hackathons"
                     onClick={() => this.changePage(4)}
                   >
                     Hackathons
