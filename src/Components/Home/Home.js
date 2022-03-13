@@ -7,7 +7,11 @@ export default class Home extends Component {
   componentDidMount(){
     localStorage.setItem("movies-data",JSON.stringify(moviesData));
     localStorage.setItem("sports-data", JSON.stringify(sportsData));
-    localStorage.setItem("hackathon-data", JSON.stringify(hackathonData));
+    let arr = localStorage.getItem("hackathon-data");
+
+    if(arr === null){
+      localStorage.setItem("hackathon-data", JSON.stringify(hackathonData));
+    }
   }
   render() {
     return (
