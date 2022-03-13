@@ -2,8 +2,16 @@ import React, { Component } from "react";
 import "./Home.css";
 import {moviesData, sportsData, hackathonData} from "../../Data/Data.js"
 
+/**
+ * @component
+ * To display the home page of website, which contains images and description about features of the website
+ */
 export default class Home extends Component {
 
+  /**
+   * @param {void}
+   * @returns {void}
+   */
   componentDidMount(){
     localStorage.setItem("movies-data",JSON.stringify(moviesData));
     localStorage.setItem("sports-data", JSON.stringify(sportsData));

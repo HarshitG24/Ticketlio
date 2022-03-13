@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./CSS/Hackathon.css"
 import HackathonBody from "./HackathonBody";
 
+/**
+ * @component
+ */
 export default class Hackathon extends Component {
   render() {
     return (

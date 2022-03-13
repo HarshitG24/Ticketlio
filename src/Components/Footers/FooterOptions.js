@@ -4,7 +4,16 @@ import subscription from "../../Images/subscription.png";
 import cancellation from "../../Images/cancellation.png";
 import "./CSS/FooterOptions.css";
 
+/**
+ * To display the options of cancellation, customer care and subscription
+ * @component
+ */
 export default class FooterOptions extends Component {
+  /**
+   * 
+   * @param {string} value Receives an integer as string to determine which image to be shown in footer.
+   * @returns {string}
+   */
   imageSelector(value) {
     switch (value) {
       case "1":
