@@ -90,7 +90,7 @@ class Navbar extends Component {
       <div>
         <nav className="navbar navbar-expand-lg  navbar-color">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/Ticketlio">
               {/* Ticketlio */}
               <img
                 src="https://s3.amazonaws.com/logos.brandpa.com/uploads/20f3ba4de705602366939ad0098a1de7/ticketlio2.png"
@@ -117,7 +117,7 @@ class Navbar extends Component {
                 <li className="nav-item" key="movies">
                   <a
                     className="navbar-option"
-                    href="movies"
+                    href="/Ticketlio/movies"
                     onClick={() => this.changePage(2)}
                   >
                     Movies
@@ -137,7 +137,7 @@ class Navbar extends Component {
                 <li className="nav-item" key="Hackathons">
                   <a
                     className="navbar-option"
-                    href="Hackathons"
+                    href="/Ticketlio/Hackathons"
                     onClick={() => this.changePage(4)}
                   >
                     Hackathons
@@ -147,7 +147,7 @@ class Navbar extends Component {
                 <li className="nav-item" key="register-events">
                   <a
                     className="navbar-option"
-                    href="register"
+                    href="/Ticketlio/register"
                     onClick={() => this.changePage(5)}
                   >
                     Register Events
