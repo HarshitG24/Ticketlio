@@ -35,5 +35,7 @@ This is the link: https://github.com/HarshitG24/Project1-DesignDocument
 ## Deployed version of the website
 This website is deployed using surge, Here is the link: http://ragged-volleyball-ticket.surge.sh/
 
+There is one limitation to this, sometimes due to extension in browser, the request might be blocked and the link above might not work, try using a different browser if it doesn't work
+
 ## JSDoc and HTML page
 JSDoc has been added to all the components and inside the **/docs** folder, contains the **index.html** file, which will contain the documentation
