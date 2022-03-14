@@ -30,7 +30,7 @@ Have made use of Localstorage for persist storgae functionality
 ## Design Document Link
 This is the link: https://github.com/HarshitG24/Project1-DesignDocument
 1. Please clone the repo above and checkout to main branch
-2. This repo should contain the pdf document
+2. This repo should contain the pdf document as well image of uml diagram
 
 ## Deployed version of the website
 This website is deployed using surge, Here is the link: http://ragged-volleyball-ticket.surge.sh/
